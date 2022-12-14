@@ -70,7 +70,6 @@ class model:
         cost=1/len(X)*sum_er.reshape(1,)[0]
             
         if previous_cost-cost<0.00001:
-            print(previous_cost-cost)
             s.stop=True
         s.cost=cost        
         s.weights=copy.deepcopy(weights)
