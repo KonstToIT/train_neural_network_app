@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[ ]:
-
-
 import pandas as pd
 import numpy as np
 import random as rd
@@ -11,6 +5,10 @@ from sklearn.preprocessing import StandardScaler as ss
 
 #create dataset from titanic dataset
 def create():
+    """
+        Creates Train dataset and targets from csv file
+        returns:train dataset, targets
+    """
     data=pd.read_csv("train.csv")[["Survived","Pclass","Sex","Age","Fare","SibSp"]]
     data=data.fillna(value={"Age":np.mean(data["Age"])})
     data.loc[data.Sex=="male","Sex"]=0

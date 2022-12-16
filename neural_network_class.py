@@ -11,7 +11,14 @@ def sig(x):
 
 # In[143]:
 class model:
-    
+    """
+        class for creating neural network objects
+        Each object has 4 atributes. They are:
+        arch-neural network's architecture
+        cost-current value of cost function
+        stop-flag for stopping training when necessary
+        weights- current values of weights
+    """
     
     def __init__(s,arch):#create model with specific architecture and random initialized weights and cost_value=1000
         
@@ -28,7 +35,10 @@ class model:
     
     
     def make_one_iteration(s,X,Y,previous_cost,lr=1,l=0.4):
-        
+        """
+            This function realizes one epoch of training
+            Input: model object,training set,targets,learning rate,regularization parameter
+        """
         s.stop=False
         arch=s.arch
         weights=copy.deepcopy(s.weights)
@@ -76,6 +86,10 @@ class model:
         
         
     def train(s,X,Y,lr=1,l=0.4):
+        """
+            Realizes whole training process 
+            Input:model object, training set, targets, learning rate, regularization parameter
+        """
         k=-1
         while s.stop!=True:
             k+=1
@@ -83,7 +97,12 @@ class model:
             print("iteration number {0}, cost is {1}".format(k,s.cost))
         print("We stopped cause cost function didn't change enough in last iteration")  
 
-    def predict(s,X,Y):
+    def predict(s,X):
+        """
+            Predict values for test set
+            Input:model object, test_set
+            returns: predictions
+        """
         predictions=[]
         weights=s.weights
         for t in range(len(X)):
@@ -98,5 +117,22 @@ class model:
                     a.append(sig(z[i-1]))
             predictions.append(a[len(s.arch)-1])
         return np.array(predictions).reshape(714,)
+    
+    def find_max_weight(s):
+        """
+            Finds maximum weight
+            Input:model object
+            returns:maximum weight
+        """
+        global flat_weights
+        flat_weights=[]
+        def get_flat_weights(weights):
+            for i in weights:
+                if type(i)==list or type(i)==np.ndarray:
+                    get_flat_weights(i)
+                else:
+                    flat_weights.append(abs(i))
+        get_flat_weights(s.weights)
+        return max(flat_weights)
         
 
