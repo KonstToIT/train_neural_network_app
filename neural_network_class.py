@@ -79,7 +79,7 @@ class model:
             weights[i]=weights[i]-lr/len(X)*cap_deltas[i]
         cost=1/len(X)*sum_er.reshape(1,)[0]
             
-        if previous_cost-cost<0.00001:
+        if previous_cost-cost<0.00000001:
             s.stop=True
         s.cost=cost        
         s.weights=copy.deepcopy(weights)
