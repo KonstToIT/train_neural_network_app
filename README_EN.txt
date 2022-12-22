@@ -1,7 +1,7 @@
 I) How to run?
 
 	1) Download all project files and place them in one folder
-	2) Using the pip package manager, run the command pip install -r requirements.txt
+	2) From the command line using the pip package manager, run pip install -r requirements.txt
 	3) Run the "Show_neural_network.ipynb" file with a program capable of opening .ipynb format files, for example
 	jupyter notebook
 
