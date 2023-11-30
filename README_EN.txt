@@ -2,8 +2,7 @@ I) How to run?
 
 	1) Download all project files and place them in one folder
 	2) From the command line using the pip package manager, run pip install -r requirements.txt
-	3) Run the "Show_neural_network.ipynb" file with a program capable of opening .ipynb format files, for example
-	jupyter notebook
+	3) Run the "Show_neural_network.py" file with a program capable of opening .py format files
 
 This program was created to get acquainted with how the process of training a neural network takes place.
 
@@ -12,7 +11,8 @@ II) After launch:
 	Instructions for use:
 	1) In the field "Architecture" you need to enter n numbers separated by a space, where each number means the number of neurons in the current layer,
 	and the number of this number displays the number of the layer. FIRST NUMBER SHOULD BE 5, and LAST 1, because in this version, the neural network
-	trained on a specific data set.
+	trained on a specific data set. The number of neurons in hidden layers should be LESS OR EQUAL to 20. The cause of this restriction is impossibility
+	to show more neurons in the image field.
 
 	2) Once you have entered the correct value in the "Architecture" field, click "submit". You will see a neural network given
 	you architecture.
