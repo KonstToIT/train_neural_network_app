@@ -1,3 +1,11 @@
+# Train neural network app #
+
+## In General ##
+This app aims to visualise training neural network process. In this version of app the NN trains on state-of-the-art for beginner data scientists Titanic Disaster dataset, which you can find by the 
+link https://www.kaggle.com/competitions/titanic.
+You may chose an architecture of neural network and look how it trains in real time. 
+
+
 I) How to run?
 
 	1) Download all project files and place them in one folder
