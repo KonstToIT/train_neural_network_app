@@ -1,11 +1,17 @@
 # Train neural network app #
 
 ## In General ##
-This app aims to visualise training neural network process. In this version of app the NN trains on state-of-the-art for beginner data scientists Titanic Disaster dataset, which you can find by the 
-link https://www.kaggle.com/competitions/titanic.
+This app aims to visualise training neural network process it also may be interesting for those who want realize neural network algorithm from scratch. In this version of app the NN trains on state-of-the-art for beginner data scientists Titanic Disaster dataset, which you can find by the 
+link https://www.kaggle.com/competitions/titanic. 
 You may chose an architecture of neural network and look how it trains in real time. 
 
-
+## Structure of the project ##
+* Show_neural_network.py - this module shows GUI
+* create_X_Y_train.py - this module extracts necessary features from original Titanic dataset
+* draw_scheme- this module creates image which corresponds to current state of neural network
+* neural_network_class.py - this module implements logic of creating and training neural network
+* requirements.txt - this file contains information about libs which you need to execute the project
+* train.csv - this file contains original dataset.
 I) How to run?
 
 	1) Download all project files and place them in one folder
