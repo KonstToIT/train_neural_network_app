@@ -3,7 +3,7 @@
 ## In General ##
 This app aims to visualise training neural network process, it also may be interesting for those who want realize neural network algorithm from scratch. In this version of app the NN trains on state-of-the-art for beginner data scientists Titanic Disaster dataset, which you can find by the 
 link https://www.kaggle.com/competitions/titanic. As was said neural network was realised from scratch. It uses sigmoid functions as activations for every
-neuron. And [logloss]([http://example.com/](https://www.analyticsvidhya.com/blog/2020/11/binary-cross-entropy-aka-log-loss-the-cost-function-used-in-logistic-regression/) "Logloss") loss as a loss function.
+neuron. And [logloss]([http://example.com/](https://www.analyticsvidhya.com/blog/2020/11/binary-cross-entropy-aka-log-loss-the-cost-function-used-in-logistic-regression/ "Logloss") loss as a loss function.
 You may chose an architecture of neural network and look how it trains in real time. This process is illustrated by changing of thickness and color of lines which corresponds to weights of neural network.
 
 ## Structure of the project ##
