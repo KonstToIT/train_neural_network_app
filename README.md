@@ -19,8 +19,7 @@ You may chose an architecture of neural network and look how it trains in real t
 2) From the command line using the pip package manager, run pip install -r requirements.txt
 3) Run the "Show_neural_network.py" file with a program capable of opening .py format files
 
-## After start ##
-User guide:
+## After start user guide ##
 1) In the field "Architecture" you need to enter n numbers separated by a space, where each value means the number of neurons in the current layer,
 and the number of this value displays the number of the layer. FIRST NUMBER SHOULD BE 5, and LAST 1, because in this version, the neural network
 trained on a specific data set. The number of neurons in hidden layers should be LESS OR EQUAL to 20. The cause of this restriction is impossibility
@@ -41,9 +40,3 @@ What do you see in front of you?
 "Stop" button
 * The "Stop" button allows you to stop training the neural network.
 
-In both modes, the iteration number and the value of the error function for this iteration will be displayed on the right.
-
-4) After starting training in any of the modes, after a while you will see that the thickness of the lines has changed. Thickness change
-lines reflects the change in the weights of the neural network.
-
-All training is done on the "titanic" dataset, which can be found at https://www.kaggle.com/competitions/titanic
