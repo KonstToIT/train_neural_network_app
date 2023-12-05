@@ -9,17 +9,28 @@ def create_window(width,height):
         Input:width,height
         return:window object
     """
-    #create layout. We will have 2 raws. 
-    #create first raw. It consists from Text, In and buttons elements
-    raw_1 = [sg.Text("Architecture:"),
+    #create layout. It will consists of 4 rows.
+
+    raw_1 =[
+        sg.Text("Chose train data"),
+        sg.In(size=(30,1)),
+        sg.FileBrowse(key="-IN_TRAIN-"),
+      
+        ]
+    raw_2 = [
+        sg.Text("Chose targets"),
+        sg.In(size=(30,1)),
+        sg.FileBrowse(key="-IN_TARGET-"),
+        ]
+    
+    raw_3 = [sg.Text("Architecture:"),
         sg.In(size=(30,1),enable_events=True,key='-INPUT-'),
         
         sg.Button("submit",key="-SUB-"),
         sg.Button("make one iteration",key="-TRAIN_ONE-"), 
         sg.Button("train",key="-TRAIN-"),
         sg.Button("Stop",key="-STOP-"),]
-    #create second raw. It consists from 3 frames.
-    #create first frame. It consists from 5 Text elements placed vertical(description of each feature)
+    
     frame_1 = [
         [sg.Text("Pclass")],
         [sg.Text("Sex")],
@@ -27,26 +38,15 @@ def create_window(width,height):
         [sg.Text("Fare")],
         [sg.Text("SibSp")],
     ]
-    #create second frame. It consists from 1 Image element(neural network scheme)
     frame_2 = [
         [sg.Image(key="-IMAGE-",size=(500,500))]
     ]
-    #create third frame. It consists from 1 Text(information about cost function and number of iteration)
+    
     frame_3 = [
         [sg.Text(size=(30,3),key="-TOUT-")]
     ]
 
-    raw_2 =[
-        sg.Text("Chose train data"),
-        sg.In(size=(30,1)),
-        sg.FileBrowse(key="-IN_TRAIN-"),
-      
-        ]
-    raw_3 = [
-        sg.Text("Chose targets"),
-        sg.In(size=(30,1)),
-        sg.FileBrowse(key="-IN_TARGET-"),
-        ]
+    
     raw_4 = [
         sg.Frame("1",frame_1,),
         sg.Frame("2",frame_2,),
@@ -68,7 +68,7 @@ def create_and_maintain_GUI():
     window=create_window(1024,768)
     def update_window_after_one_iteration(number_of_iteration):
         k=number_of_iteration+1
-        nn.make_one_iteration(*create(),nn.cost)
+        nn.make_one_iteration(*create(values["-IN_TRAIN-"],values["-IN_TARGET-"]),nn.cost)
         draw_neural_network_scheme(arch,nn.weights,nn.find_max_weight())
         window["-IMAGE-"].update(filename="neural_network.png")
         window["-TOUT-"].update("epoch number {0}, cost value is {1}".format(k,round(nn.cost,5)))
