@@ -74,25 +74,27 @@ def create_and_maintain_GUI():
         window["-TOUT-"].update("epoch number {0}, cost value is {1}".format(k,round(nn.cost,5)))
     while True:#event loop
         event,values=window.read(timeout=10)
-        if event=="-SUB-":
-            arch=list(map(int,values["-INPUT-"].split()))
-            nn=model(arch)
-            draw_neural_network_scheme(arch,nn.weights,nn.find_max_weight())
-            window["-IMAGE-"].update(filename="neural_network.png")
-            window["-TOUT-"].update("You have just created neural network with {0} architecture!".format(nn.arch))
-            k=0
-        if event=="-TRAIN_ONE-":
-            update_window_after_one_iteration(k)
-            k+=1
-        if event == "-TRAIN-":
-            while nn.stop!=True:
-                window.refresh()
-                if event=="-STOP-":
-                    break
+        try:
+            if event=="-SUB-":
+                arch=list(map(int,values["-INPUT-"].split()))
+                nn=model(arch)
+                draw_neural_network_scheme(arch,nn.weights,nn.find_max_weight())
+                window["-IMAGE-"].update(filename="neural_network.png")
+                window["-TOUT-"].update("You have just created neural network with {0} architecture!".format(nn.arch))
+                k=0
+            if event=="-TRAIN_ONE-":
                 update_window_after_one_iteration(k)
                 k+=1
-                event, values = window.read(timeout=10)
-        #window["-INPUT-"].update("enter correct neural network architecure")
+            if event == "-TRAIN-":
+                while nn.stop!=True:
+                    window.refresh()
+                    if event=="-STOP-":
+                        break
+                    update_window_after_one_iteration(k)
+                    k+=1
+                    event, values = window.read(timeout=10)
+        except:
+            window["-INPUT-"].update("enter correct neural network architecure")
         if event==sg.WIN_CLOSED:
             break
     window.close()
