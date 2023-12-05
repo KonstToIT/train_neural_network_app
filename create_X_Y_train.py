@@ -4,18 +4,14 @@ import random as rd
 from sklearn.preprocessing import StandardScaler as ss
 
 #create dataset from titanic dataset
-def create():
+def create(Path_to_train, Path_to_targets):
     """
         Creates Train dataset and targets from csv file
         returns:train dataset, targets
     """
-    data=pd.read_csv("train.csv")[["Survived","Pclass","Sex","Age","Fare","SibSp"]]
-    data=data.fillna(value={"Age":np.mean(data["Age"])})
-    data.loc[data.Sex=="male","Sex"]=0
-    data.loc[data.Sex=="female","Sex"]=1
-
-    X_train=data[["Pclass","Sex","Age","Fare","SibSp"]]
-    Y_train=data[["Survived"]]
+    X_train=pd.read_csv(Path_to_train)
+    
+    Y_train=pd.read_csv(Path_to_targets)
     
     X_train=np.array(X_train)
     Y_train=np.array(Y_train)
