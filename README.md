@@ -7,7 +7,7 @@ neuron. And [logloss](https://www.analyticsvidhya.com/blog/2020/11/binary-cross-
 You may chose an architecture of neural network and look how it trains in real time. This process is illustrated by changing of thickness and color of lines which corresponds to weights of neural network.
 
 ## Structure of the project ##
-* Show_neural_network.py - this module shows GUI
+* Start.py - this module shows GUI
 * create_X_Y_train.py - this module extracts necessary features from original Titanic dataset
 * draw_scheme- this module creates image which corresponds to current state of neural network
 * neural_network_class.py - this module implements logic of creating and training neural network
