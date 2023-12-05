@@ -72,12 +72,15 @@ class model:
             
             d_weights=[]
             for i in range(len(weights)):#calculating d_weight for each weight
-                d_weights.append(np.matmul(deltas[i].transpose(),a[i]))
+                if i == len(arch)-1:
+                    d_weights.append(np.matmul(deltas[i].transpose(),a[i])*a[i]*(1-a[i]))
+                else:
+                    d_weights.append(np.matmul(deltas[i].transpose(),a[i]))
                 cap_deltas[i]=cap_deltas[i]+d_weights[i] #accumulate weights updates
 
         for i in range(len(weights)):#change weights according to acuumulated values
             weights[i]=weights[i]-lr/len(X)*cap_deltas[i]
-        cost=1/len(X)*sum_er.reshape(1,)[0]
+        cost=sum(1/len(X)*sum_er.reshape(len(Y[0]),))
             
         if previous_cost-cost<0.00000001:
             s.stop=True
@@ -116,7 +119,7 @@ class model:
                     z.append(np.matmul(a[i-1],weights[i-1].transpose()))
                     a.append(sig(z[i-1]))
             predictions.append(a[len(s.arch)-1])
-        return np.array(predictions).reshape(714,)
+        return np.array(predictions).reshape(len(predicitons),)
     
     def find_max_weight(s):
         """
