@@ -13,9 +13,7 @@ def create_window(width,height):
     #create first raw. It consists from Text, In and buttons elements
     raw_1 = [sg.Text("Architecture:"),
         sg.In(size=(30,1),enable_events=True,key='-INPUT-'),
-        sg.Text("Chose a file"),
-        sg.In(size=(20,1),key="-FILE_PATH-"),
-        sg.FileBrowse(key="-IN_FILE-"),
+        
         sg.Button("submit",key="-SUB-"),
         sg.Button("make one iteration",key="-TRAIN_ONE-"), 
         sg.Button("train",key="-TRAIN-"),
@@ -37,8 +35,19 @@ def create_window(width,height):
     frame_3 = [
         [sg.Text(size=(30,3),key="-TOUT-")]
     ]
-    
-    raw_2 = [
+
+    raw_2 =[
+        sg.Text("Chose train data"),
+        sg.In(size=(30,1)),
+        sg.FileBrowse(key="-IN_TRAIN-"),
+      
+        ]
+    raw_3 = [
+        sg.Text("Chose targets"),
+        sg.In(size=(30,1)),
+        sg.FileBrowse(key="-IN_TARGET-"),
+        ]
+    raw_4 = [
         sg.Frame("1",frame_1,),
         sg.Frame("2",frame_2,),
         sg.Frame("3",frame_3,),
@@ -46,6 +55,8 @@ def create_window(width,height):
     layout=[
         raw_1,
         raw_2,
+        raw_3,
+        raw_4,
     ]
     #end of layout creating
     window=sg.Window("Visualizing neural network training process",layout,size=(width,height))
