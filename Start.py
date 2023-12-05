@@ -12,7 +12,10 @@ def create_window(width,height):
     #create layout. We will have 2 raws. 
     #create first raw. It consists from Text, In and buttons elements
     raw_1 = [sg.Text("Architecture:"),
-        sg.In(size=(50,1),enable_events=True,key='-INPUT-'),
+        sg.In(size=(30,1),enable_events=True,key='-INPUT-'),
+        sg.Text("Chose a file"),
+        sg.In(size=(20,1),key="-FILE_PATH-"),
+        sg.FileBrowse(key="-IN_FILE-"),
         sg.Button("submit",key="-SUB-"),
         sg.Button("make one iteration",key="-TRAIN_ONE-"), 
         sg.Button("train",key="-TRAIN-"),
